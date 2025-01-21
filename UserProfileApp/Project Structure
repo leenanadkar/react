@@ -1,0 +1,11 @@
+user-profile-app/
+  ├── public/
+  ├── src/
+  │   ├── components/
+  │   │   ├── Header.js
+  │   │   ├── Profile.js
+  │   │   ├── Footer.js
+  │   ├── App.js
+  │   ├── index.js
+  ├── package.json
+  ├── README.md
