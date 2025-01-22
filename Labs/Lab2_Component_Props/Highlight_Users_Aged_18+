@@ -1,0 +1,36 @@
+// UserCard.js 
+import React from 'react';
+import './UserCard.css';
+
+const UserCard = ({ user }) => {
+  const cardStyle = {
+    backgroundColor: user.age >= 18 ? 'lightgreen' : 'lightcoral',
+    padding: '10px',
+    margin: '10px',
+    borderRadius: '5px',
+    border: user.age >= 18 ? '2px solid green' : '2px solid red',
+  };
+
+  return (
+    <div className="user-card" style={cardStyle}>
+      <h3 className={user.age >= 18 ? 'highlight' : ''}>
+        Name: {user.name}
+      </h3>
+      <p>Age: {user.age}</p>
+      <p>Email: {user.email}</p>
+    </div>
+  );
+};
+
+export default UserCard;
+
+// UserCard.css 
+.user-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}
+
+.highlight {
+  color: green;
+  font-weight: bold;
+}
