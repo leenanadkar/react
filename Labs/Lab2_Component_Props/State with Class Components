@@ -1,0 +1,56 @@
+// Counter.js
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  increment = () => {
+    const { max } = this.props;
+    this.setState((prevState) => ({
+      count: Math.min(prevState.count + 1, max),
+    }));
+  };
+
+  decrement = () => {
+    const { min } = this.props;
+    this.setState((prevState) => ({
+      count: Math.max(prevState.count - 1, min),
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.increment}>Increment</button>
+        <button onClick={this.decrement}>Decrement</button>
+      </div>
+    );
+  }
+}
+
+Counter.defaultProps = {
+  min: 0,
+  max: 10,
+};
+
+export default Counter;
+
+// App.js
+import React from 'react';
+import Counter from './Counter';
+
+const App = () => {
+  return (
+    <div>
+      <Counter min={0} max={5} />
+    </div>
+  );
+};
+
+export default App;
