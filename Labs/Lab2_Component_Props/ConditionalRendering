@@ -1,0 +1,40 @@
+// StatusMessage.js
+import React from 'react';
+
+const StatusMessage = ({ status }) => {
+  let message;
+
+  switch (status) {
+    case 'active':
+      message = 'User is active.';
+      break;
+    case 'inactive':
+      message = 'User is not active.';
+      break;
+    case 'pending':
+      message = 'User verification pending.';
+      break;
+    default:
+      message = 'Status unknown.';
+  }
+
+  return <p>{message}</p>;
+};
+
+export default StatusMessage;
+
+// App.js
+import React from 'react';
+import StatusMessage from './StatusMessage';
+
+const App = () => {
+  return (
+    <div>
+      <StatusMessage status="active" />
+      <StatusMessage status="inactive" />
+      <StatusMessage status="pending" />
+    </div>
+  );
+};
+
+export default App;
