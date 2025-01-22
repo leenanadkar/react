@@ -1,0 +1,51 @@
+// UserCard.js (Functional Component)
+import React from 'react';
+import './UserCard.css';
+
+const UserCard = ({ user }) => {
+  const cardStyle = {
+    backgroundColor: user.age >= 18 ? 'lightgreen' : 'lightcoral',
+    padding: '10px',
+    margin: '10px',
+    borderRadius: '5px',
+  };
+
+  return (
+    <div className="user-card" style={cardStyle}>
+      <h3>Name: {user.name}</h3>
+      <p>Age: {user.age}</p>
+      <p>Email: {user.email}</p>
+    </div>
+  );
+};
+
+export default UserCard;
+
+// App.js (Parent Component)
+import React from 'react';
+import UserCard from './UserCard';
+
+const App = () => {
+  const users = [
+    { name: 'Alice', age: 22, email: 'alice@example.com' },
+    { name: 'Bob', age: 17, email: 'bob@example.com' },
+    { name: 'Charlie', age: 25, email: 'charlie@example.com' },
+  ];
+
+  return (
+    <div>
+      <h1>User Profiles</h1>
+      {users.map((user, index) => (
+        <UserCard key={index} user={user} />
+      ))}
+    </div>
+  );
+};
+
+export default App;
+
+// UserCard.css
+.user-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}
