@@ -1,0 +1,36 @@
+// ProductCard.js
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const ProductCard = ({ productName, price, inStock }) => {
+  return (
+    <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
+      <h2>{productName}</h2>
+      <p>Price: ${price}</p>
+      <p>{inStock ? 'In Stock' : 'Out of Stock'}</p>
+    </div>
+  );
+};
+
+ProductCard.propTypes = {
+  productName: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  inStock: PropTypes.bool.isRequired,
+};
+
+export default ProductCard;
+
+// App.js (Parent Component)
+import React from 'react';
+import ProductCard from './ProductCard';
+
+const App = () => {
+  return (
+    <div>
+      <ProductCard productName="Laptop" price={999.99} inStock={true} />
+      <ProductCard productName="Headphones" price={199.99} inStock={false} />
+    </div>
+  );
+};
+
+export default App;
