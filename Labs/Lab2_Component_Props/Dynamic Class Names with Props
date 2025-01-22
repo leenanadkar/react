@@ -1,0 +1,62 @@
+// Button.js
+import React from 'react';
+import './Button.css';
+
+const Button = ({ label, size, primary }) => {
+  const className = `button ${size} ${primary ? 'primary' : 'secondary'}`;
+
+  return <button className={className}>{label}</button>;
+};
+
+export default Button;
+
+// Button.css
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.button.small {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.button.medium {
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.button.large {
+  font-size: 16px;
+  padding: 15px 30px;
+}
+
+.button.primary {
+  background-color: blue;
+  color: white;
+}
+
+.button.secondary {
+  background-color: gray;
+  color: black;
+}
+
+// App.js
+import React from 'react';
+import Button from './Button';
+
+const App = () => {
+  return (
+    <div>
+      <Button label="Click Me" size="small" primary={true} />
+      <Button label="Submit" size="medium" primary={false} />
+      <Button label="Cancel" size="large" primary={true} />
+    </div>
+  );
+};
+
+export default App;
