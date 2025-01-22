@@ -1,0 +1,41 @@
+// Greeting.js (Functional Component)
+import React from 'react';
+
+const Greeting = ({ name }) => {
+  return <h1>Hello, {name}!</h1>;
+};
+
+export default Greeting;
+
+// WelcomeMessage.js (Class Component with Default Props)
+import React, { Component } from 'react';
+
+class WelcomeMessage extends Component {
+  static defaultProps = {
+    title: 'Guest',
+  };
+
+  render() {
+    const { title } = this.props;
+    return <h2>Welcome, {title}!</h2>;
+  }
+}
+
+export default WelcomeMessage;
+
+// App.js (Parent Component)
+import React from 'react';
+import Greeting from './Greeting';
+import WelcomeMessage from './WelcomeMessage';
+
+const App = () => {
+  return (
+    <div>
+      <Greeting name="Ved" />
+      <WelcomeMessage title="Administrator" />
+      <WelcomeMessage />
+    </div>
+  );
+};
+
+export default App;
