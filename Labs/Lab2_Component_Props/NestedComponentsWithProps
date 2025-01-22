@@ -1,0 +1,41 @@
+// Card.js
+import React from 'react';
+
+const Card = ({ content }) => {
+  return (
+    <div style={{ border: '1px solid #000', padding: '10px', margin: '10px' }}>
+      <p>{content}</p>
+    </div>
+  );
+};
+
+export default Card;
+
+// Dashboard.js
+import React from 'react';
+import Card from './Card';
+
+const Dashboard = ({ title }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <Card content={`Welcome to the ${title} dashboard!`} />
+    </div>
+  );
+};
+
+export default Dashboard;
+
+// App.js
+import React from 'react';
+import Dashboard from './Dashboard';
+
+const App = () => {
+  return (
+    <div>
+      <Dashboard title="Admin" />
+    </div>
+  );
+};
+
+export default App;
