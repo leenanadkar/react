@@ -6,20 +6,22 @@ function App() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        // Parse (read) data from JSON
+        // Parse (read) data from JSON on component load
         fetchData().then(data => {
             setUsers(data.users);
         });
     }, []);
 
-    // Add new user and save to JSON
+    // Add new user without downloading the JSON file
     const addNewUser = () => {
         const newUser = { name: 'Priya', age: 28, city: 'Delhi' };
         const updatedUsers = [...users, newUser];
         setUsers(updatedUsers);
+    };
 
-        // Save updated data back to JSON
-        const updatedData = { users: updatedUsers };
+    // Save updated data back to JSON only when 'Save Data' is clicked
+    const saveUserData = () => {
+        const updatedData = { users };
         saveData(updatedData);
     };
 
@@ -32,6 +34,7 @@ function App() {
                 ))}
             </ul>
             <button onClick={addNewUser}>Add New User</button>
+            <button onClick={saveUserData} style={{ marginLeft: '10px' }}>Save Data</button>
         </div>
     );
 }
