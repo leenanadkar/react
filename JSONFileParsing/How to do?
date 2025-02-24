@@ -1,0 +1,12 @@
+npx create-react-app json-demo
+cd json-demo
+npm start
+
+
+Project Structure:
+json-demo/
+├── public/
+│   └── data.json    # JSON file in the public directory
+└── src/
+    ├── App.js       # Main React component
+    └── dataService.js # Service to handle JSON data
